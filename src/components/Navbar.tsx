@@ -3,18 +3,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { name: "Features", href: "#features" },
-  { name: "Use Cases", href: "#use-cases" },
-  { name: "Stats", href: "#stats" },
-  { name: "Testimonials", href: "#testimonials" },
+  { name: "Features", href: "#features", isPage: false },
+  { name: "Use Cases", href: "#use-cases", isPage: false },
+  { name: "Stats", href: "#stats", isPage: false },
+  { name: "Resources", href: "/resources", isPage: true },
 ];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,30 +37,47 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <motion.a
-          href="#"
-          className="flex items-center gap-2 group"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center glow-primary">
-            <Zap className="w-5 h-5 text-primary" />
-          </div>
-          <span className="text-xl font-bold gradient-text">NexusDB</span>
-        </motion.a>
+        <Link to="/">
+          <motion.div
+            className="flex items-center gap-2 group"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center glow-primary">
+              <Zap className="w-5 h-5 text-primary" />
+            </div>
+            <span className="text-xl font-bold gradient-text">NexusDB</span>
+          </motion.div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors relative group"
-              whileHover={{ y: -2 }}
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-            </motion.a>
+            link.isPage ? (
+              <Link key={link.name} to={link.href}>
+                <motion.span
+                  className={`text-muted-foreground hover:text-foreground transition-colors relative group inline-block ${
+                    location.pathname === link.href ? "text-primary" : ""
+                  }`}
+                  whileHover={{ y: -2 }}
+                >
+                  {link.name}
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                    location.pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                  }`} />
+                </motion.span>
+              </Link>
+            ) : (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                className="text-muted-foreground hover:text-foreground transition-colors relative group"
+                whileHover={{ y: -2 }}
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+              </motion.a>
+            )
           ))}
         </nav>
 
@@ -142,17 +161,32 @@ export const Navbar = () => {
           >
             <nav className="flex flex-col p-4 gap-2">
               {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="py-3 px-4 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
-                >
-                  {link.name}
-                </motion.a>
+                link.isPage ? (
+                  <Link key={link.name} to={link.href} onClick={() => setIsMobileMenuOpen(false)}>
+                    <motion.span
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className={`py-3 px-4 block text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors ${
+                        location.pathname === link.href ? "text-primary bg-primary/10" : ""
+                      }`}
+                    >
+                      {link.name}
+                    </motion.span>
+                  </Link>
+                ) : (
+                  <motion.a
+                    key={link.name}
+                    href={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="py-3 px-4 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
+                  >
+                    {link.name}
+                  </motion.a>
+                )
               ))}
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
                 <Button variant="ghost" className="w-full justify-start text-muted-foreground">
