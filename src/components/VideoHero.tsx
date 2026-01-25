@@ -3,6 +3,7 @@ import { ArrowRight, Play, Pause, Lock, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DatabaseVisual } from "./DatabaseVisual";
 import { useState, useRef } from "react";
+import heroVideo from "@/assest/High_Resolution_Video_Generation_Request.mp4";
 
 export const VideoHero = () => {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -29,15 +30,14 @@ export const VideoHero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-20"
-          poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
+          className="w-full h-full object-cover opacity-40"
         >
-          <source 
-            src="https://cdn.coverr.co/videos/coverr-abstract-data-visualization-5895/1080p.mp4" 
-            type="video/mp4" 
+          <source
+            src={heroVideo}
+            type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/80 to-background" />
       </div>
 
       {/* Animated Grid Overlay */}
