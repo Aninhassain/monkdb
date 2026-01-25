@@ -3,6 +3,7 @@ import { VideoHero } from "@/components/VideoHero";
 import { LogoCloud } from "@/components/LogoCloud";
 import { AnimatedMetrics } from "@/components/AnimatedMetrics";
 import { Features } from "@/components/Features";
+import { EmpoweringDataRetrieval } from "@/components/EmpoweringDataRetrieval";
 import { TechShowcase } from "@/components/TechShowcase";
 import { UseCases } from "@/components/UseCases";
 import { Stats } from "@/components/Stats";
@@ -20,6 +21,7 @@ const Index = () => {
       <LogoCloud />
       <AnimatedMetrics />
       <Features />
+      <EmpoweringDataRetrieval />
       <TechShowcase />
       <UseCases />
       <Stats />
