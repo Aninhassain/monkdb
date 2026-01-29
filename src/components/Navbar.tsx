@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Use Cases", href: "#use-cases", isPage: false },
   { name: "Stats", href: "#stats", isPage: false },
   { name: "Resources", href: "/resources", isPage: true },
+  { name: "FAQs", href: "/faqs", isPage: true },
 ];
 
 export const Navbar = () => {
