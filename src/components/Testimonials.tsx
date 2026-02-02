@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "NexusDB transformed our data infrastructure. We consolidated 5 different databases into one unified platform, reducing costs by 60%.",
+    quote: "Monk DB transformed our data infrastructure. We consolidated 5 different databases into one unified platform, reducing costs by 60%.",
     author: "Sarah Chen",
     role: "CTO",
     company: "TechScale Inc.",
@@ -25,7 +25,7 @@ const testimonials = [
     avatar: "ER",
   },
   {
-    quote: "Enterprise security without compromising performance. NexusDB checks all our compliance boxes while delivering blazing-fast queries.",
+    quote: "Enterprise security without compromising performance. Monk DB checks all our compliance boxes while delivering blazing-fast queries.",
     author: "David Kim",
     role: "CISO",
     company: "SecureFinance Corp",
@@ -80,7 +80,7 @@ export const Testimonials = () => {
           </h2>
           
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            See what industry leaders are saying about NexusDB
+            See what industry leaders are saying about Monk DB
           </p>
         </motion.div>
 

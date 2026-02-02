@@ -113,7 +113,7 @@ export const VideoHero = () => {
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed"
             >
-              NexusDB supports Vector, Time-Series, Geo-Spatial, Document, Full-Text Search, 
+              Monk DB supports Vector, Time-Series, Geo-Spatial, Document, Full-Text Search, 
               and Streaming SQL — all in a single, high-performance engine built for modern enterprises.
             </motion.p>
 

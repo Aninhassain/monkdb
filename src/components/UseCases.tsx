@@ -56,7 +56,7 @@ export const UseCases = () => {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-primary/30 mb-6">
-            <span className="text-sm text-primary font-medium">Why NexusDB</span>
+            <span className="text-sm text-primary font-medium">Why Monk DB</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -64,7 +64,7 @@ export const UseCases = () => {
           </h2>
           
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From startups to Fortune 500, teams choose NexusDB for these core advantages
+            From startups to Fortune 500, teams choose Monk DB for these core advantages
           </p>
         </motion.div>
 

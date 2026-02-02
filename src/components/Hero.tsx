@@ -61,7 +61,7 @@ export const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed"
             >
-              NexusDB supports Vector, Time-Series, Geo-Spatial, Document, Full-Text Search, 
+              Monk DB supports Vector, Time-Series, Geo-Spatial, Document, Full-Text Search, 
               and Streaming SQL — all in a single, high-performance engine built for modern enterprises.
             </motion.p>
 
@@ -119,7 +119,7 @@ export const Hero = () => {
               animate={{ rotate: 360 }}
               transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
             >
-              <span className="text-xl font-bold gradient-text">NexusDB</span>
+              <span className="text-xl font-bold gradient-text">Monk DB</span>
             </motion.div>
 
             {/* Floating Icons */}

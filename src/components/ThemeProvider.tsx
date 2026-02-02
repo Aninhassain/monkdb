@@ -11,7 +11,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    const stored = localStorage.getItem("nexusdb-theme") as Theme;
+    const stored = localStorage.getItem("monkdb-theme") as Theme;
     return stored || "dark";
   });
 
@@ -26,7 +26,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       root.classList.remove("light");
     }
 
-    localStorage.setItem("nexusdb-theme", theme);
+    localStorage.setItem("monkdb-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {

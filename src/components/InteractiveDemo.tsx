@@ -7,7 +7,7 @@ const demoSteps = [
   { 
     label: "Connect", 
     icon: Database, 
-    code: `const db = await NexusDB.connect("cluster.nexusdb.io");`,
+    code: `const db = await MonkDB.connect("cluster.monkdb.io");`,
     output: "✓ Connected to cluster in 23ms"
   },
   { 
@@ -66,7 +66,7 @@ export const InteractiveDemo = () => {
           </h2>
           
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Experience the speed and simplicity of NexusDB with our interactive demo
+            Experience the speed and simplicity of Monk DB with our interactive demo
           </p>
         </motion.div>
 
@@ -84,7 +84,7 @@ export const InteractiveDemo = () => {
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
-              <span className="text-xs text-muted-foreground font-mono">nexusdb-demo.js</span>
+              <span className="text-xs text-muted-foreground font-mono">monkdb-demo.js</span>
               <Button
                 size="sm"
                 onClick={runDemo}
